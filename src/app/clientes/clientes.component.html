@@ -1,0 +1,36 @@
+<h3>Listado de Clientes</h3>
+<table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
+    <thead>
+        <tr class="filters">
+            <th>Código de Cliente</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Correo Electrónico</th>
+            <th>CIF Proveedor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.CodCliente }}</td>
+            <td>{{ cliente.Nombre }}</td>
+            <td>{{ cliente.Direccion }}</td>
+            <td><a href="mailto:{{ cliente.correo }}">{{ cliente.correo
+                    }}</a></td>
+            <td>{{ cliente.NIF_proveedor_energia }}</td>
+            <td><button (click)="mostrarInfoProveedor(cliente.NIF_proveedor_energia)" class="btn btn-primary">Mostrar Información Proveedor</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="proveedor" *ngIf="showProveedor">
+    <div class="proveedor__box">
+        <h4>Información Proveedor</h4>
+        <p>Nombre: <span class="fw-bold">{{proveedor.nombre}}</span></p>
+        <p>CIF: <span class="fw-bold">{{proveedor.cif}}</span></p>
+        <p>Teléfono: <span class="fw-bold">{{proveedor.telefono}}</span></p>
+        <p *ngIf="showMasInfo">Direccion: <span class="fw-bold">{{proveedor.direccion}}</span></p>
+        <p *ngIf="showMasInfo">Email: <span class="fw-bold">{{proveedor.email}}</span></p>
+        <p *ngIf="showMasInfo">Contacto: <span class="fw-bold">{{proveedor.contacto}}</span></p>
+        <button class="btn btn-primary" (click)="mostrarMasInfo()" *ngIf="!showMasInfo">Más información</button>
+    </div>
+    <button (click)="cerrarBox()" class="btn btn-close btn-light botonClose"></button>
+</div>

@@ -1,0 +1,17 @@
+.etiqueta__box{
+  border: solid 1px #000;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 40rem;
+  background-color: white;
+}
+.flex-1rem{
+  display: flex;
+  gap: 1rem;
+}
+.etiqueta__box__nombre{
+  font-weight: bold;
+}
+h3{
+  text-align: center;
+}

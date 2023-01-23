@@ -1,0 +1,27 @@
+<h3>Listado de Proveedores</h3>
+<table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
+    <thead>
+        <tr class="filters">
+            <th>Nombre</th>
+            <th>Correo Electrónico</th>
+            <th>Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+            <td>{{ proveedor.nombre }}</td>
+            <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email
+                    }}</a></td>
+            <td>{{ proveedor.telefono }}</td>
+            <td><button (click)="mostrarEtiquetas(proveedor.cif)" class="btn btn-primary">Mostrar Etiqueta</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="etiqueta" *ngIf="showEtiquetas">
+    <div class="etiqueta__box">
+        <app-etiquetas [cifProveedor]="cif"></app-etiquetas>
+    </div>
+    <button (click)="cerrarBox()" class="btn btn-close btn-light botonClose"></button>
+</div>
+
